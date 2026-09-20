@@ -9,9 +9,31 @@ import express from "express";
 const app = express();
 const Port = 5000;
 
+const user = [
+    {
+        name: "hasnain",
+        id: 1,
+        email: "hasnain@gmail.com"
+
+    },
+
+    {
+        name: "ayan",
+        id: 2,
+        email: "ayan@gmail.com"
+
+    }
+]
+
 app.get('/', (req, res) => {
-    res.send("HI Hasnain How are you");
+    res.send("Welcome to my Backend Application");
 })
+
+app.get('/user', (req, res) => {
+    res.send(user);
+})
+
+
 
 
 app.listen(Port, () => {
