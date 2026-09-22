@@ -7,9 +7,12 @@ for (var hasnain = 0; hasnain <= 5; hasnain++) {
 import express from "express";
 
 const app = express();
+
+app.use(express.json());
+
 const Port = 5000;
 
-const user = [
+const users = [
     {
         name: "hasnain",
         id: 1,
@@ -25,14 +28,28 @@ const user = [
     }
 ]
 
+//rest api // 
 app.get('/', (req, res) => {
     res.send("Welcome to my Backend Application");
 })
 
-app.get('/user', (req, res) => {
-    res.send(user);
+app.get('/users', (req, res) => {
+    res.send(users);
 })
 
+app.post('/myusers', (req, res) => {
+    const newUser = req.body;
+    console.log(newUser);
+
+    console.log("User Created Successfully");
+
+
+    res.send({
+        message: "User created Successfully",
+        user: newUser
+    })
+
+});
 
 
 
