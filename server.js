@@ -27,11 +27,12 @@ const users = [
 
     }
 ]
-
+//aak request ke andar two response nhi bhejsakte//
 //rest api // 
 app.get('/', (req, res) => {
-    res.send("Welcome to my Backend Application");
+    res.send("Welcome to my Application");
 })
+
 
 app.get('/users', (req, res) => {
     res.send(users);
@@ -40,6 +41,7 @@ app.get('/users', (req, res) => {
 app.post('/myusers', (req, res) => {
     const newUser = req.body;
     console.log(newUser);
+    users.push(newUser);
 
     console.log("User Created Successfully");
 
